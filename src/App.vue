@@ -5,6 +5,7 @@
     <FixMenu />
     <HeaderView />
     <VisualView />
+    <ItemView />
     <FooterView />
   </div>
 </template>
@@ -15,6 +16,7 @@ import MobileMenu from '@/components/MobileMenu.vue'
 import FixMenu from '@/components/FixMenu.vue'
 import HeaderView from '@/components/HeaderView.vue'
 import VisualView from '@/components/VisualView.vue'
+import ItemView from '@/components/ItemView.vue'
 import FooterView from '@/components/FooterView.vue'
 export default {
   components: {
@@ -23,6 +25,7 @@ export default {
     FixMenu,
     HeaderView,
     VisualView,
+    ItemView,
     FooterView
   }
 }

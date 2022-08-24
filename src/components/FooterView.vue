@@ -15,7 +15,7 @@
         <hr>
 
         <a href="#" class="footer-logo">
-          <img src="../assets/images/f_logo.png" alt="마시그래이">
+          <img :src="require('@/assets/images/f_logo.png')" alt="마시그래이">
         </a>
 
         <hr>
@@ -28,9 +28,9 @@
         <hr>
 
         <ul class="footer-sns clearfix">
-          <li><a href="#"><img src="../assets/images/f_sns_1.png" alt="blog"></a></li>
-          <li><a href="#"><img src="../assets/images/f_sns_2.png" alt="instagram"></a></li>
-          <li><a href="#"><img src="../assets/images/f_sns_3.png" alt="facebook"></a></li>
+          <li><a href="#"><img :src="require('@/assets/images/f_sns_1.png')" alt="블로그"></a></li>
+          <li><a href="#"><img :src="require('@/assets/images/f_sns_2.png')" alt="인스타"></a></li>
+          <li><a href="#"><img :src="require('@/assets/images/f_sns_3.png')" alt="페이스북"></a></li>
         </ul>
 
       </div>
