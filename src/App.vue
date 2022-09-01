@@ -3,7 +3,7 @@
     <GoTop />
     <MobileMenu />
     <FixMenu />
-    <HeaderView />
+    <HeaderView  />
     <VisualView />
     <ItemView />
     <FooterView />
@@ -18,7 +18,9 @@ import HeaderView from '@/components/HeaderView.vue'
 import VisualView from '@/components/VisualView.vue'
 import ItemView from '@/components/ItemView.vue'
 import FooterView from '@/components/FooterView.vue'
+
 export default {
+  name: 'App',
   components: {
     GoTop,
     MobileMenu,
@@ -27,6 +29,10 @@ export default {
     VisualView,
     ItemView,
     FooterView
+  },
+  setup() {
+    return { 
+    }
   }
 }
 </script>

@@ -20,70 +20,35 @@
     </div>
 
     <ul class="mb-menu">
-      <li>
-        <a href="#">마시그래이</a>
-        <ul class="mb-submenu">
-          <li><a href="#">회사소개</a></li>
-          <li><a href="#">연혁</a></li>
-          <li><a href="#">CEO인사말</a></li>
-          <li><a href="#">BI / 비전</a></li>
-          <li><a href="#">오시는길</a></li>
-        </ul>
-      </li>
-      <li>
-        <a href="#">메뉴</a>
-        <ul class="mb-submenu">
-          <li><a href="#">신메뉴</a></li>
-          <li><a href="#">커피</a></li>
-          <li><a href="#">음료</a></li>
-          <li><a href="#">디저트</a></li>
-          <li><a href="#">MD상품</a></li>
-        </ul>
-      </li>
-      <li>
-        <a href="#">프랜차이즈</a>
-        <ul class="mb-submenu">
-          <li><a href="#">가맹안내</a></li>
-          <li><a href="#">가맹절차</a></li>
-          <li><a href="#">매장인테리어</a></li>
-          <li><a href="#">커피 아카데미</a></li>
-          <li><a href="#">가맹상담신청</a></li>
-        </ul>
-      </li>
+      <li v-for="(item, index) in menudata" :key="index">
+        <a v-bind:href="item.mainlink">{{item.mainstr}}</a>               
 
-      <li>
-        <a href="#">매장안내</a>
         <ul class="mb-submenu">
-          <li><a href="#">매장안내</a></li>
+          <li v-for="(subitem, subindex) in item.sub" :key="subindex">
+            <a :href="subitem.sublink">{{subitem.substr}}</a>
+          </li>
         </ul>
-      </li>
 
-      <li>
-        <a href="#">공지사항</a>
-        <ul class="mb-submenu">
-          <li><a href="#">공지사항</a></li>
-          <li><a href="#">이벤트</a></li>
-        </ul>
-      </li>
-
-      <li>
-        <a href="#">고객의소리</a>
-        <ul class="mb-submenu">
-          <li><a href="#">FAQ</a></li>
-          <li><a href="#">Q&amp;A</a></li>
-          <li><a href="#">케이터링</a></li>
-        </ul>
       </li>
     </ul>
+    
   </div>
 </div>
 </template>
 
 <script>
 import $ from 'jquery';
-import { onMounted } from 'vue';
+import { onMounted, computed } from 'vue';
+
+import { useStore } from 'vuex'
 export default {
+  
   setup() {
+    // vuex 의 모든 기능을 쓰려고 생성
+    const store = useStore();
+    // vuex 의 state 변화 감시
+    const menudata = computed( () => store.getters.getMenuData );
+
     onMounted(() => {
 
     // 모바일 메뉴 기능
@@ -175,7 +140,8 @@ export default {
     });
     });
 
-    return {      
+    return { 
+      menudata     
     }
   }
 }
@@ -278,7 +244,7 @@ export default {
 
 .mb-sns-list li {
   position: relative;
-  display: blocyk;
+  display: block;
   float: left;
   margin-right: 5px;
 }
