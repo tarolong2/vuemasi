@@ -38,7 +38,7 @@
 
 <script>
 import $ from 'jquery';
-import { onMounted, computed } from 'vue';
+import { computed, onUpdated } from 'vue';
 
 import { useStore } from 'vuex'
 export default {
@@ -49,19 +49,17 @@ export default {
     // vuex 의 state 변화 감시
     const menudata = computed( () => store.getters.getMenuData );
 
-    onMounted(() => {
-
+    onUpdated(() => {
     // 모바일 메뉴 기능
     // 1. 펼침메뉴 기능
     // let mb_menu_li = $('.mb-menu > li');
     let mb_mainmenu = $('.mb-menu > li > a');
     let mb_submenu = $('.mb-submenu');
-
     $.each(mb_mainmenu, function(index){
       $(this).click(function(event){
         // href 를 막아준다.
         event.preventDefault();
-      
+
         // 클릭하면 현재 포커스 클래스가 있는지 검토
         let temp = $(this).hasClass('mb-menu-focus');
 
